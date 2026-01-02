@@ -18,3 +18,5 @@ jobs:
     with:
       service_name: ${{ matrix.service.name }}
       port: 4000
+    secrets:
+      infra_token: ${{ secrets.INFRA_TOKEN }}
