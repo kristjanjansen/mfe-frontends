@@ -16,6 +16,18 @@ export function registerCustomElement(
   class MfElement extends HTMLElement {
     private root?: ReactDOM.Root;
     private shadow?: ShadowRoot;
+    private basePath: string = "/";
+
+    static get observedAttributes() {
+      return ["base-path"];
+    }
+
+    attributeChangedCallback(name: string, _old: string | null, value: string | null) {
+      if (name === "base-path") {
+        this.basePath = value ?? "/";
+        this.render();
+      }
+    }
 
     connectedCallback() {
       const { shadow, css } = options;
@@ -40,7 +52,7 @@ export function registerCustomElement(
         this.root = ReactDOM.createRoot(mountTarget);
       }
 
-      this.root.render(<App />);
+      this.render();
     }
 
     disconnectedCallback() {
@@ -48,6 +60,11 @@ export function registerCustomElement(
         this.root.unmount();
         this.root = undefined;
       }
+    }
+
+    private render() {
+      if (!this.root) return;
+      this.root.render(<App basePath={this.basePath} />);
     }
   }
 
