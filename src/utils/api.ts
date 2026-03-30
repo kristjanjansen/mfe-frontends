@@ -2,34 +2,30 @@ import { useQuery } from "@tanstack/react-query";
 
 const BASE = import.meta.env.VITE_API_URL;
 
-type ApiResponse = {
-  data: ApiItem[];
-};
-
-async function fetchApiResponse(): Promise<ApiResponse> {
-  if (!BASE) {
-    throw new Error("VITE_API_URL is not set");
-  }
-
-  const res = await fetch(`${BASE}`);
-
-  if (!res.ok) {
-    throw new Error(`Billing request failed: ${res.status} ${res.statusText}`);
-  }
-
-  return res.json();
-}
-
-type ApiItem = {
+export type Bill = {
   id: number;
   title: string;
+  amount: number;
+  status: string;
 };
 
-export function useBilling() {
+export function useBills() {
   return useQuery({
-    queryKey: ["billing"],
-    queryFn: async (): Promise<ApiItem[]> => {
-      const json = await fetchApiResponse();
+    queryKey: ["bills"],
+    queryFn: async (): Promise<Bill[]> => {
+      const res = await fetch(`${BASE}/api/v2/bills`);
+      const json = await res.json();
+      return json.data;
+    },
+  });
+}
+
+export function useBill(id: string) {
+  return useQuery({
+    queryKey: ["bills", id],
+    queryFn: async (): Promise<Bill> => {
+      const res = await fetch(`${BASE}/api/v2/bills/${id}`);
+      const json = await res.json();
       return json.data;
     },
   });
@@ -37,9 +33,10 @@ export function useBilling() {
 
 export function useDashboardBilling() {
   return useQuery({
-    queryKey: ["billing", "dashboard"],
-    queryFn: async (): Promise<ApiItem | null> => {
-      const json = await fetchApiResponse();
+    queryKey: ["bills", "dashboard"],
+    queryFn: async (): Promise<Bill | null> => {
+      const res = await fetch(`${BASE}/api/v2/bills`);
+      const json = await res.json();
       return json.data[0] ?? null;
     },
   });
