@@ -13,7 +13,7 @@ export function registerCustomElement(
 ) {
   if (customElements.get(tag)) return;
 
-  class MfElement extends HTMLElement {
+  class MfeElement extends HTMLElement {
     private root?: ReactDOM.Root;
     private shadow?: ShadowRoot;
     private basePath: string = "/";
@@ -68,6 +68,6 @@ export function registerCustomElement(
     }
   }
 
-  customElements.define(tag, MfElement);
+  customElements.define(tag, MfeElement);
 }
 
