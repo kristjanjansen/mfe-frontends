@@ -33,15 +33,15 @@ export default function LayoutApp() {
   }
 
   return (
-    <main className="h-screen flex bg-surface text-on-surface">
-      <nav className="p-4 bg-surface-secondary flex-none w-[240px] flex flex-col">
+    <main className="h-screen flex">
+      <nav className="p-4 flex-none w-[240px] flex flex-col" style={{ background: "color-mix(in srgb, var(--fg) 10%, var(--bg))" }}>
         <div className="flex-1">
           {links.map((link) => (
             <button
               key={link.path}
               onClick={() => handleNavigate(link.path)}
               className={
-                "block p-2 cursor-pointer text-on-surface " +
+                "block p-2 cursor-pointer " +
                 (link.path === currentPath ? "underline" : "")
               }
             >
@@ -51,7 +51,7 @@ export default function LayoutApp() {
         </div>
         <button
           onClick={toggleTheme}
-          className="p-2 cursor-pointer text-on-surface-secondary text-sm"
+          className="p-2 cursor-pointer text-gray-500 text-sm"
         >
           Toggle theme
         </button>

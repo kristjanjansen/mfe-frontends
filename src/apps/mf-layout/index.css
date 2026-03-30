@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "../../styles/theme.css";
 
 ::slotted(*) {
   @apply h-full w-full block;
