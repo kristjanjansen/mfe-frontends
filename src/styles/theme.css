@@ -1,0 +1,10 @@
+@theme {
+  --color-surface: var(--color-bg);
+  --color-surface-secondary: var(--color-bg-secondary);
+  --color-surface-tertiary: var(--color-bg-tertiary);
+  --color-on-surface: var(--color-text);
+  --color-on-surface-secondary: var(--color-text-secondary);
+  --color-outline: var(--color-border);
+  --color-primary: var(--color-accent);
+  --color-on-primary: var(--color-accent-text);
+}
