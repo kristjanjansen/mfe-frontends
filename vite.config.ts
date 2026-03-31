@@ -24,13 +24,6 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       rollupOptions: {
         input: resolve(root, "index.html"),
-        external: [
-          "react",
-          "react-dom/client",
-          "react/jsx-runtime",
-          "@tanstack/react-query",
-          "i18next",
-        ],
         output: {
           entryFileNames: "index.js",
           assetFileNames: "index.css",
