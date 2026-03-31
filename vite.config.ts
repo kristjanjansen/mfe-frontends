@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     preview: {
-      allowedHosts: [".localtest.me"],
+      allowedHosts: [".localtest.me", ".fachwerk.dev"],
     },
   };
 });
