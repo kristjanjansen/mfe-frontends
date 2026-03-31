@@ -7,13 +7,11 @@ on:
 permissions:
   contents: read
   packages: write
+  pull-requests: read
 
 jobs:
   release-layout:
     uses: kristjanjansen/mfe-infra/.github/workflows/release-preview.yml@main
-    permissions:
-      contents: read
-      packages: write
     with:
       service_name: mfe-layout
       port: "4000"
@@ -23,9 +21,6 @@ jobs:
 
   release-billing:
     uses: kristjanjansen/mfe-infra/.github/workflows/release-preview.yml@main
-    permissions:
-      contents: read
-      packages: write
     with:
       service_name: mfe-billing
       port: "4000"
@@ -35,9 +30,6 @@ jobs:
 
   release-dashboard:
     uses: kristjanjansen/mfe-infra/.github/workflows/release-preview.yml@main
-    permissions:
-      contents: read
-      packages: write
     with:
       service_name: mfe-dashboard
       port: "4000"
@@ -47,9 +39,6 @@ jobs:
 
   release-cookiebot:
     uses: kristjanjansen/mfe-infra/.github/workflows/release-preview.yml@main
-    permissions:
-      contents: read
-      packages: write
     with:
       service_name: mfe-cookiebot
       port: "4000"
