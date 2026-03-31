@@ -25,7 +25,7 @@ beforeEach(() => {
     })
   );
 
-  vi.stubEnv("VITE_API_URL", "http://localhost:5000");
+  vi.stubEnv("MFE_API_URL", "http://localhost:5000");
 });
 
 describe("API fetch functions", () => {

@@ -3,7 +3,7 @@ import type { KeyPrefix } from "i18next";
 import HttpBackend from "i18next-http-backend";
 import { initReactI18next, useTranslation } from "react-i18next";
 
-const baseUrl = (import.meta.env.VITE_TRANSLATIONS_URL || "").replace(
+const baseUrl = (import.meta.env.MFE_TRANSLATIONS_URL || "").replace(
   /\/$/,
   ""
 );

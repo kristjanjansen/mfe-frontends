@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-const BASE = import.meta.env.VITE_API_URL;
+const BASE = import.meta.env.MFE_API_URL;
 
 export type Bill = {
   id: number;

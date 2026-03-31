@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [tailwindcss()],
+    envPrefix: ["MFE_", "VITE_"],
     envDir: __dirname,
     cacheDir: resolve(__dirname, "node_modules/.vite", APP),
     root,
