@@ -4,11 +4,54 @@ on:
   push:
     tags: ["v*"]
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
-  release:
+  release-layout:
     uses: kristjanjansen/mfe-infra/.github/workflows/release-preview.yml@main
+    permissions:
+      contents: read
+      packages: write
     with:
-      service_name: mfe-frontends
+      service_name: mfe-layout
+      port: "4000"
+      version: ${{ github.ref_name }}
+    secrets:
+      infra_token: ${{ secrets.INFRA_TOKEN }}
+
+  release-billing:
+    uses: kristjanjansen/mfe-infra/.github/workflows/release-preview.yml@main
+    permissions:
+      contents: read
+      packages: write
+    with:
+      service_name: mfe-billing
+      port: "4000"
+      version: ${{ github.ref_name }}
+    secrets:
+      infra_token: ${{ secrets.INFRA_TOKEN }}
+
+  release-dashboard:
+    uses: kristjanjansen/mfe-infra/.github/workflows/release-preview.yml@main
+    permissions:
+      contents: read
+      packages: write
+    with:
+      service_name: mfe-dashboard
+      port: "4000"
+      version: ${{ github.ref_name }}
+    secrets:
+      infra_token: ${{ secrets.INFRA_TOKEN }}
+
+  release-cookiebot:
+    uses: kristjanjansen/mfe-infra/.github/workflows/release-preview.yml@main
+    permissions:
+      contents: read
+      packages: write
+    with:
+      service_name: mfe-cookiebot
       port: "4000"
       version: ${{ github.ref_name }}
     secrets:
