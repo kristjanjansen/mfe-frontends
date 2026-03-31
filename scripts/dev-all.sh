@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APPS=(mf-layout mf-billing mf-dashboard mf-cookiebot)
+APPS=(mfe-layout mfe-billing mfe-dashboard mfe-cookiebot)
 BASE_PORT=4000
 
 PIDS=()

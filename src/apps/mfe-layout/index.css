@@ -4,7 +4,7 @@
   @apply h-full w-full block;
 }
 
-::slotted(mf-dashboard),
-::slotted(mf-billing) {
+::slotted(mfe-dashboard),
+::slotted(mfe-billing) {
   @apply flex-1;
 }

@@ -1,7 +1,7 @@
 import React from "react";
-import { registerCustomElement } from "../../utils/utils";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import DashboardApp from "./DashboardApp";
+import { registerCustomElement } from "../../utils/utils";
+import CookiebotApp from "./CookiebotApp";
 import css from "./index.css?inline";
 
 function createClient() {
@@ -14,9 +14,9 @@ function Root() {
   const [client] = React.useState(() => createClient());
   return (
     <QueryClientProvider client={client}>
-      <DashboardApp />
+      <CookiebotApp />
     </QueryClientProvider>
   );
 }
 
-registerCustomElement("mf-dashboard", Root, { shadow: true, css });
+registerCustomElement("mfe-cookiebot", Root, { shadow: true, css });
